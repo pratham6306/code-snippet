@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration | DRF Snippets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="icon">&#128187;</span> DRF Snippets
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                &#9776;
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="snippets.html" class="nav-link">Snippets List</a>
+                <a href="create-snippet.html" class="nav-link">Create Snippet</a>
+                <a href="users.html" class="nav-link">Users</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <header class="page-header">
+            <h1>Create Account</h1>
+            <p class="subtitle">Register a new user on the Django REST Framework backend to start authoring code snippets.</p>
+        </header>
+
+        <!-- Alert Container -->
+        <div id="alertContainer" class="alert-container hidden">
+            <span id="alertMessage"></span>
+            <button class="alert-close" id="alertClose">&times;</button>
+        </div>
+
+        <div class="form-container">
+            <form id="registerForm" class="register-form">
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label for="regUsername">Username <span class="required">*</span></label>
+                    <input type="text" id="regUsername" placeholder="e.g. charlie" required>
+                    <small class="form-help">Enter a unique username (letters, numbers, and underscores only).</small>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="regPassword">Password <span class="required">*</span></label>
+                    <input type="password" id="regPassword" placeholder="Minimum 6 characters" required>
+                    <small class="form-help">Choose a secure password.</small>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirm Password <span class="required">*</span></label>
+                    <input type="password" id="regConfirmPassword" placeholder="Re-enter password" required>
+                    <small class="form-help">Must match the password field above exactly.</small>
+                </div>
+
+                <!-- Submit buttons -->
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn btn-primary">Create Account</button>
+                    <a href="index.html" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+
+            <aside class="educational-panel">
+                <h3>DRF API Educational Guide</h3>
+                <div class="panel-step">
+                    <h4>HTTP Action: POST /register/</h4>
+                    <p>Registration triggers a <code>POST</code> request sending a JSON body with the username and password to our new custom endpoint.</p>
+                </div>
+                <div class="panel-step">
+                    <h4>Password Hashing</h4>
+                    <p>On the backend, Django never stores passwords in plain text. The serializer intercepts the request and calls <code>User.objects.create_user()</code>, which hashes the password using PBKDF2/SHA256 automatically.</p>
+                </div>
+                <div class="panel-step">
+                    <h4>Security Note</h4>
+                    <p>In standard REST architectures, the password field is marked as <code>write_only=True</code> in the serializer. This ensures that the hashed or plain passwords are never returned in response payloads.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Django REST Snippets. Built for learning API frontend integrations.</p>
+    </footer>
+
+    <script type="module" src="js/register.js"></script>
+</body>
+</html>

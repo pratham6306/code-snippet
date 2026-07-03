@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Snippet | DRF Snippets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/edit.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="icon">&#128187;</span> DRF Snippets
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                &#9776;
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="snippets.html" class="nav-link">Snippets List</a>
+                <a href="create-snippet.html" class="nav-link">Create Snippet</a>
+                <a href="users.html" class="nav-link">Users</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="back-nav">
+            <a href="#" id="backToDetail" class="back-link">&larr; Back to Snippet Details</a>
+        </div>
+
+        <header class="page-header">
+            <h1>Edit Snippet</h1>
+            <p class="subtitle">Modify an existing snippet's fields. The backend will re-highlight your code automatically.</p>
+        </header>
+
+        <!-- Alert Banner -->
+        <div id="alertContainer" class="alert-container hidden">
+            <span id="alertMessage"></span>
+            <button class="alert-close" id="alertClose">&times;</button>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loading-container">
+            <div class="spinner"></div>
+            <p>Loading snippet details for editing...</p>
+        </div>
+
+        <div id="formContainer" class="form-container hidden">
+            <form id="editSnippetForm" class="snippet-form">
+                <!-- Title Field -->
+                <div class="form-group">
+                    <label for="snippetTitle">Snippet Title</label>
+                    <input type="text" id="snippetTitle" name="title" placeholder="e.g. Quick Sort Algorithm" max_length="100">
+                    <small class="form-help">Optional. Max 100 characters.</small>
+                </div>
+
+                <!-- Code Field -->
+                <div class="form-group">
+                    <label for="snippetCode">Source Code <span class="required">*</span></label>
+                    <textarea id="snippetCode" name="code" rows="10" placeholder="Paste your code snippet here..." required></textarea>
+                    <small class="form-help">Required. Enter the raw source code text.</small>
+                </div>
+
+                <!-- Dropdowns Flex Row -->
+                <div class="form-row">
+                    <!-- Language Selection -->
+                    <div class="form-group flex-1">
+                        <label for="snippetLanguage">Programming Language</label>
+                        <select id="snippetLanguage" name="language" required>
+                            <option value="python">Python</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="cpp">C++</option>
+                            <option value="go">Go</option>
+                            <option value="java">Java</option>
+                            <option value="ruby">Ruby</option>
+                            <option value="php">PHP</option>
+                            <option value="bash">Bash/Shell</option>
+                        </select>
+                        <small class="form-help">Select language for syntax highlighting.</small>
+                    </div>
+
+                    <!-- Style Selection -->
+                    <div class="form-group flex-1">
+                        <label for="snippetStyle">Pygments Style</label>
+                        <select id="snippetStyle" name="style" required>
+                            <option value="friendly">Friendly</option>
+                            <option value="monokai">Monokai</option>
+                            <option value="default">Default</option>
+                            <option value="autumn">Autumn</option>
+                            <option value="vs">Visual Studio</option>
+                            <option value="pastie">Pastie</option>
+                        </select>
+                        <small class="form-help">Sets the highlighting theme.</small>
+                    </div>
+                </div>
+
+                <!-- Line Numbers Toggle -->
+                <div class="form-group checkbox-group">
+                    <label for="snippetLinenos" class="checkbox-label">
+                        <input type="checkbox" id="snippetLinenos" name="linenos">
+                        <span>Display line numbers in HTML rendering</span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn btn-primary">Save Changes</button>
+                    <a href="#" id="cancelBtn" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+
+            <aside class="educational-panel">
+                <h3>DRF API Educational Guide</h3>
+                <div class="panel-step">
+                    <h4>HTTP Action: PUT</h4>
+                    <p>Updating executes a <code>PUT /snippets/&lt;id&gt;/</code> request. PUT is designed to replace/update a resource entirely with new states. It is idempotent.</p>
+                </div>
+                <div class="panel-step">
+                    <h4>Ownership Constraint</h4>
+                    <p>Only the owner of a snippet is allowed to edit/delete it (configured in the DRF backend view using <code>IsOwnerOrReadOnly</code> permissions). If you attempt to update a snippet owned by another user, the server will return a <code>403 Forbidden</code> error.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Django REST Snippets. Built for learning API frontend integrations.</p>
+    </footer>
+
+    <script type="module" src="js/edit.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Users | DRF Snippets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/users.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="icon">&#128187;</span> DRF Snippets
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                &#9776;
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="snippets.html" class="nav-link">Snippets List</a>
+                <a href="create-snippet.html" class="nav-link">Create Snippet</a>
+                <a href="users.html" class="nav-link active">Users</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <header class="page-header">
+            <h1>Backend Users</h1>
+            <p class="subtitle">View users registered in the Django system and see how many snippets are assigned to each user.</p>
+        </header>
+
+        <!-- Alert Container -->
+        <div id="alertContainer" class="alert-container hidden">
+            <span id="alertMessage"></span>
+            <button class="alert-close" id="alertClose">&times;</button>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loading-container">
+            <div class="spinner"></div>
+            <p>Loading registered users...</p>
+        </div>
+
+        <!-- Users Grid -->
+        <section id="usersGrid" class="users-grid hidden">
+            <!-- Dynamically populated via JavaScript -->
+        </section>
+
+        <!-- Empty State -->
+        <section id="emptyState" class="empty-state hidden">
+            <div class="empty-icon">&#128100;</div>
+            <h3>No Users Found</h3>
+            <p>There are no registered users on this Django backend database yet.</p>
+        </section>
+
+        <!-- Pagination Controls -->
+        <div id="paginationContainer" class="pagination-container hidden">
+            <button id="prevBtn" class="btn btn-secondary btn-sm" disabled>&larr; Previous</button>
+            <span id="pageIndicator" class="page-indicator">Page 1</span>
+            <button id="nextBtn" class="btn btn-secondary btn-sm" disabled>Next &rarr;</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Django REST Snippets. Built for learning API frontend integrations.</p>
+    </footer>
+
+    <script type="module" src="js/users.js"></script>
+</body>
+</html>

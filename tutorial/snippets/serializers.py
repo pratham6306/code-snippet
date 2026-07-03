@@ -17,6 +17,22 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ["id", "username", "snippets"]
 
+
+class UserRegisterSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = User
+        fields = ["id", "username", "password"]
+
+    def create(self, validated_data):
+        # We use create_user to ensure the password gets hashed correctly by Django
+        user = User.objects.create_user(
+            username=validated_data["username"],
+            password=validated_data["password"]
+        )
+        return user
+
 # class SnippetSerializer(serializers.Serializer):
 #     id = serializers.IntegerField(read_only = True)
 #     title = serializers.CharField(required = False, allow_blank = True, max_length = 100)

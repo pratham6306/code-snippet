@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | DRF Snippets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="icon">&#128187;</span> DRF Snippets
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                &#9776;
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="snippets.html" class="nav-link">Snippets List</a>
+                <a href="create-snippet.html" class="nav-link">Create Snippet</a>
+                <a href="users.html" class="nav-link">Users</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="back-nav">
+            <a href="users.html" class="back-link">&larr; Back to Users List</a>
+        </div>
+
+        <!-- Alert Container -->
+        <div id="alertContainer" class="alert-container hidden">
+            <span id="alertMessage"></span>
+            <button class="alert-close" id="alertClose">&times;</button>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loading-container">
+            <div class="spinner"></div>
+            <p>Loading user profile...</p>
+        </div>
+
+        <!-- User Profile Card -->
+        <article id="profileCard" class="profile-card hidden">
+            <div class="profile-sidebar">
+                <div class="avatar-large">👤</div>
+                <h1 id="usernameDisplay" class="username-title">Loading...</h1>
+                <div class="user-id-badge">User ID: <span id="userIdDisplay">--</span></div>
+            </div>
+
+            <div class="profile-details">
+                <h2>Owned Snippets</h2>
+                <p class="section-desc">List of all syntax-highlighted snippets created by this user account.</p>
+                
+                <!-- Snippets List Container -->
+                <ul id="userSnippetsList" class="user-snippets-list">
+                    <!-- Dynamically populated via JavaScript -->
+                </ul>
+
+                <!-- Snippet Loading Indicator (specific to snippets resolve) -->
+                <div id="snippetsLoader" class="inline-loader hidden">
+                    <div class="inline-spinner"></div>
+                    <span>Resolving snippet details from API...</span>
+                </div>
+
+                <!-- Empty Snippets Message -->
+                <div id="emptySnippetsMsg" class="empty-snippets hidden">
+                    <p>This user has not created any snippets yet.</p>
+                    <a href="create-snippet.html" class="btn btn-primary btn-sm mt-3">Create Snippet</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Django REST Snippets. Built for learning API frontend integrations.</p>
+    </footer>
+
+    <script type="module" src="js/user.js"></script>
+</body>
+</html>

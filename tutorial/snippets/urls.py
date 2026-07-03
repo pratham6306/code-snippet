@@ -2,10 +2,6 @@ from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 from snippets import views
 
-from django.urls import path
-from rest_framework.urlpatterns import format_suffix_patterns
-from snippets import views
-
 # API endpoints
 urlpatterns = format_suffix_patterns(
     [
@@ -21,6 +17,7 @@ urlpatterns = format_suffix_patterns(
         ),
         path("users/", views.UserList.as_view(), name="user-list"),
         path("users/<int:pk>/", views.UserDetail.as_view(), name="user-detail"),
+        path("register/", views.UserRegister.as_view(), name="user-register"),
     ]
 )
 # urlpatterns = [

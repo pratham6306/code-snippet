@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django REST Snippets | API Client</title>
+    <!-- Import Outfit font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to page-specific stylesheet -->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="icon">&#128187;</span> DRF Snippets
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                &#9776;
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link active">Dashboard</a>
+                <a href="snippets.html" class="nav-link">Snippets List</a>
+                <a href="create-snippet.html" class="nav-link">Create Snippet</a>
+                <a href="users.html" class="nav-link">Users</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h1>API Learning Frontend</h1>
+            <p class="subtitle">A clean, educational dashboard demonstrating client-server communication using Django REST Framework APIs.</p>
+        </section>
+
+        <!-- Stats Container -->
+        <section class="stats-grid">
+            <div class="stat-card" id="snippetStatCard">
+                <div class="stat-icon">&#128221;</div>
+                <div class="stat-info">
+                    <span class="stat-value" id="totalSnippets">--</span>
+                    <span class="stat-label">Total Code Snippets</span>
+                </div>
+                <div class="stat-action">
+                    <a href="snippets.html" class="btn btn-primary btn-sm">Manage Snippets &rarr;</a>
+                </div>
+            </div>
+
+            <div class="stat-card" id="userStatCard">
+                <div class="stat-icon">&#128101;</div>
+                <div class="stat-info">
+                    <span class="stat-value" id="totalUsers">--</span>
+                    <span class="stat-label">Registered API Users</span>
+                </div>
+                <div class="stat-action">
+                    <a href="users.html" class="btn btn-secondary btn-sm">View Users &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Information -->
+        <section class="info-section">
+            <h2>How This Frontend Integrates With Django REST Framework</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>1. Modularity & Imports</h3>
+                    <p>Instead of copying API calling logic, we use standard ES6 JS modules. All requests go through <code>js/api.js</code>, importing methods using <code>import { ... } from './api.js'</code>.</p>
+                </div>
+                <div class="info-card">
+                    <h3>2. HTTP Methods (REST)</h3>
+                    <p>We use specific HTTP actions mapping to database operations: <code>GET</code> for retrieval, <code>POST</code> for creation, <code>PUT</code> for replacements, and <code>DELETE</code> for removals.</p>
+                </div>
+                <div class="info-card">
+                    <h3>3. Asynchronous Operations</h3>
+                    <p>We make use of modern JS <code>fetch</code> alongside <code>async/await</code> and <code>try/catch</code> blocks, allowing details to load dynamically without refreshing the page.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Django REST Snippets. Built for learning API frontend integrations.</p>
+    </footer>
+
+    <!-- Load page-specific JavaScript as a module -->
+    <script type="module" src="js/index.js"></script>
+</body>
+</html>
