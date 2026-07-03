@@ -1,0 +1,19 @@
+from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
+from snippets import views
+
+urlpatterns = [
+    path("snippets/", views.SnippetList.as_view()),
+    path("snippets/<int:pk>/", views.SnippetDetail.as_view()),
+]
+# urlpatterns = [
+#     path("snippets/", views.snippet_list),
+#     path("snippets/<int:pk>/", views.snippet_detail),
+# ]
+
+
+urlpatterns = format_suffix_patterns(urlpatterns)  ### --> for api-view way, it will allow us to specify 
+# the format of the response we want to receive, such as JSON or XML. For example, if we want to receive 
+# a JSON response, we can add ".json" to the end of the URL when making a request. This is useful for 
+# testing and debugging our API, as well as for providing flexibility to clients that may prefer different
+# response formats.
