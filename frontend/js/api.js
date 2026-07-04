@@ -13,7 +13,7 @@
  *   every page in the frontend gets authentication capabilities instantly!
  */
 
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = "https://code-snippet-d6jf.onrender.com";
 
 /**
  * Returns the HTTP Authorization header containing Basic Auth credentials
